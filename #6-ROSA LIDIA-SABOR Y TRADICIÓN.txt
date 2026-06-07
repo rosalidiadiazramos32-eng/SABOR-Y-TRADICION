@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sabor y tradición - Gastronomía</title>
+
+<link rel="icon"
+href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+<rect width=%22100%22 height=%22100%22 fill=%22white%22/>
+<text x=%2250%22 y=%2265%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22black%22>ST</text>
+</svg>">
+
+<style>
+
+/* ===================== BASE ===================== */
+
+body{
+margin:0;
+font-family:Georgia,serif;
+background:#f8ece7;
+scroll-behavior:smooth;
+color:#222;
+padding-left:300px;
+padding-right:300px;
+padding-bottom:70px;
+overflow-x:hidden;
+font-size:20px;
+line-height:1.8;
+}
+
+/* ===================== HEADER ===================== */
+
+header{
+display:flex;
+align-items:center;
+padding:10px 20px;
+}
+
+.logo{
+position:relative;
+
+width:140px;
+height:140px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:52px;
+font-weight:bold;
+font-family:Georgia,serif;
+letter-spacing:4px;
+color:white;
+
+border-radius:50%;
+
+/* fondo degradado */
+background:linear-gradient(145deg,#d67c9f,#b85c7c,#8b3f5c);
+
+/* brillo */
+box-shadow:
+0 10px 25px rgba(0,0,0,0.25),
+0 0 20px rgba(214,124,159,0.6),
+0 0 45px rgba(214,124,159,0.4);
+
+overflow:hidden;
+
+cursor:pointer;
+
+transition:0.5s ease;
+}
+
+/* círculo girando */
+
+.logo::before{
+content:"";
+
+position:absolute;
+
+width:180px;
+height:180px;
+
+border-radius:50%;
+
+border:5px solid transparent;
+
+border-top:5px solid #ffd6e7;
+border-left:5px solid #fff;
+
+animation:girar 4s linear infinite;
+
+filter:drop-shadow(0 0 12px rgba(255,255,255,0.8));
+}
+
+/* brillo interno */
+
+.logo::after{
+content:"";
+
+position:absolute;
+
+width:85px;
+height:85px;
+
+background:rgba(255,255,255,0.12);
+
+border-radius:50%;
+
+box-shadow:
+0 0 25px rgba(255,255,255,0.5);
+}
+
+/* animación */
+
+@keyframes girar{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* efecto al pasar el mouse */
+
+.logo:hover{
+
+transform:
+scale(1.1)
+rotate(-3deg);
+
+box-shadow:
+0 14px 35px rgba(0,0,0,0.3),
+0 0 30px rgba(255,182,193,0.9),
+0 0 60px rgba(255,182,193,0.7);
+
+background:
+linear-gradient(145deg,#e48bb0,#c96d8d,#944a68);
+}.titulo{
+flex:1;
+text-align:center;
+}
+
+
+.titulo h1{
+font-size:60px;
+margin:0;
+}
+
+/* ===================== LINEA ===================== */
+
+.linea{
+height:3px;
+background:#d8a7a7;
+width:100vw;
+margin-left:calc(-50vw + 50%);
+}
+
+/* ===================== MENU ===================== */
+
+.menu{
+position:fixed;
+left:45px;
+top:120px;
+width:240px;
+}
+
+.boton{
+display:block;
+padding:10px;
+border:1px solid #c9b3b3;
+background:#f8ece7;
+border-radius:6px;
+cursor:pointer;
+margin-bottom:6px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.boton:hover{
+background:#f1d4d4;
+}
+
+.boton.activo{
+background:#e60073;
+color:white;
+}
+
+/* ===================== SUBMENUS ===================== */
+
+.submenu{
+display:none;
+margin-bottom:10px;
+}
+
+.submenu a{
+display:block;
+background:#f4dede;
+padding:6px;
+margin:3px 0;
+text-decoration:none;
+color:black;
+border-radius:5px;
+transition:0.3s;
+font-size:16px;
+}
+
+.submenu a:hover{
+background:#e7bcbc;
+}
+
+/* ===================== CONTENIDO ===================== */
+
+.contenido{
+max-width:900px;
+margin:0 auto;
+padding:20px;
+}
+
+/* ===================== TITULOS ===================== */
+
+.contenido h2{
+font-size:50px;
+text-align:center;
+}
+
+.contenido h3{
+font-size:34px;
+text-align:center;
+position:relative;
+padding-bottom:10px;
+}
+
+
+
+/* ===================== IMAGENES ===================== */
+
+img{
+width:500px;
+max-width:100%;
+border-radius:12px;
+margin-top:15px;
+display:block;
+margin-left:auto;
+margin-right:auto;
+transition:0.3s;
+}
+
+
+.pie-foto{
+text-align:center;
+font-size:12px;
+color:#555;
+margin-top:6px;
+font-style:italic;
+}
+
+
+img:hover{
+transform:scale(1.03);
+}
+
+/* ===================== SUSCRIBETE ===================== */
+
+.suscribete{
+position:fixed;
+left:5px;
+top:500px;
+background:#d8a7a7;
+padding:12px;
+writing-mode:vertical-rl;
+transform:rotate(180deg);
+cursor:pointer;
+border-radius:0 10px 10px 0;
+z-index:1;
+transition:0.3s;
+}
+
+.suscribete:hover{
+background:#c98d8d;
+}
+
+/* ===================== BUSCADOR ===================== */
+
+.buscador{
+position:fixed;
+right:10px;
+top:110px;
+width:230px;
+z-index:20;
+}
+
+.buscador input{
+width:100%;
+padding:8px;
+border:none;
+border-radius:8px;
+outline:none;
+font-size:14px;
+background:#f4dede;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===================== INDICE ===================== */
+
+.indice{
+position:fixed;
+right:10px;
+top:160px;
+width:230px;
+z-index:10;
+}
+
+details{
+background:#f4dede;
+padding:10px;
+border-radius:10px;
+}
+
+summary{
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.indice a{
+display:block;
+text-decoration:none;
+color:black;
+margin:7px 0;
+font-size:14px;
+line-height:1.4;
+}
+
+/* ===================== PANEL DERECHO ===================== */
+
+.autores{
+position:fixed;
+bottom:90px;
+right:15px;
+background:#e7b3b3;
+padding:8px;
+border-radius:10px;
+width:135px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+font-size:11px;
+z-index:5;
+}
+
+.autores h3{
+font-size:12px;
+margin:4px 0;
+text-align:center;
+}
+
+.link-sugerido{
+display:block;
+background:#f4dede;
+padding:4px;
+margin:4px 0;
+border-radius:5px;
+text-decoration:none;
+color:black;
+font-size:10px;
+transition:0.3s;
+text-align:center;
+}
+
+.link-sugerido:hover{
+background:#d8a7a7;
+color:white;
+}
+
+/* ===================== REDES ===================== */
+
+.redes{
+display:flex;
+justify-content:center;
+align-items:center;
+margin-top:10px;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.redes img{
+width:28px;
+height:28px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.redes img:hover{
+transform:scale(1.15);
+}
+
+.copiar-btn{
+border:none;
+background:none;
+cursor:pointer;
+}
+
+/* ===================== MARQUESINA ===================== */
+
+.marquesina-final{
+background:#d8a7a7;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+width:100vw;
+padding:10px 0;
+z-index:9999;
+font-weight:bold;
+}
+
+
+/* ===================== PIE DE PAGINA ===================== */
+
+.recuadro-inferior{
+background:#d8a7a7;
+width:100vw;
+margin-left:calc(-50vw + 50%);
+margin-top:60px;
+padding:25px 10px;
+text-align:center;
+box-sizing:border-box;
+}
+
+.recuadro-inferior p{
+margin:0;
+font-size:16px;
+color:#3d2b2b;
+font-style:italic;
+letter-spacing:1px;
+}
+
+.recuadro-inferior::after{
+content:"";
+display:block;
+width:220px;
+height:2px;
+background:#8b5e5e;
+margin:12px auto 0 auto;
+border-radius:10px;
+}
+```
+
+/* ===================== RESPONSIVE ===================== */
+
+@media(max-width:1200px){
+
+body{
+padding-left:20px;
+padding-right:20px;
+}
+
+.menu,
+.indice,
+.autores,
+.buscador{
+position:relative;
+width:auto;
+left:auto;
+right:auto;
+top:auto;
+bottom:auto;
+margin:20px auto;
+}
+
+.suscribete{
+top:auto;
+bottom:140px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SUSCRIBETE -->
+<div class="suscribete" onclick="suscribirse()">
+Suscríbete
+</div>
+
+<header>
+
+<div class="logo">
+ST
+</div>
+
+<div class="titulo">
+<h1>Sabor y tradición</h1>
+</div>
+
+</header>
+
+<div class="linea"></div>
+
+
+<!-- ===================== MENU ===================== -->
+
+<div class="menu">
+
+<div class="boton" onclick="toggleMenu(this,'gastronomia')">
+Gastronomía
+</div>
+
+<div class="submenu" id="gastronomia">
+<a href="#Platillos típicos de la gastronomía oaxaqueña">Platillos típicos de la gastronomía oaxaqueña</a>
+<a href="#La gastronomía de Oaxaca en festividades tradicionales">La gastronomía de Oaxaca en festividades tradicionales</a>
+</div>
+
+<div class="boton" onclick="toggleMenu(this,'vestimenta')">
+Vestimenta
+</div>
+
+<div class="submenu" id="vestimenta">
+<a href="#Huipiles tradicionales de Oaxaca">Huipiles tradicionales de Oaxaca</a>
+<a href="#Bordados tradicionales oaxaqueños">Bordados tradicionales oaxaqueños</a>
+<a href="#Trajes típicos oaxaqueños">Trajes típicos oaxaqueños</a>
+</div>
+
+<div class="boton" onclick="toggleMenu(this,'tradiciones')">
+Tradiciones
+</div>
+
+<div class="submenu" id="tradiciones">
+<a href="#Guelaguetza">Guelaguetza</a>
+<a href="#Día de Muertos">Día de Muertos</a>
+<a href="#Fiestas patronales">Fiestas patronales</a>
+</div>
+
+<div class="boton" onclick="toggleMenu(this,'costumbres')">
+Costumbres
+</div>
+
+<div class="submenu" id="costumbres">
+<a href="#Uso de vestimenta tradicional en la Guelaguetza">Uso de vestimenta tradicional en la Guelaguetza</a>
+<a href="#El tequio como forma de organización comunitaria">El tequio como forma de organización comunitaria</a>
+</div>
+
+</div>
+
+<!-- ===================== CONTENIDO ===================== -->
+
+<div class="contenido">
+
+<section id="gastronomia1">
+
+<h2>Gastronomía</h2>
+
+<p>
+La gastronomía es el arte y el estudio de la preparación de los alimentos.
+También incluye las tradiciones, ingredientes y costumbres que tiene cada 
+lugar al cocinar y comer.
+</p>
+
+<img src="Gastronomiaa.jpg" alt="Gastronomía">
+<p class="pie-foto">
+Una mezcla de colores, ingredientes y tradiciones en cada platillo.
+</p>
+
+</section>
+
+<section id="Platillos típicos de la gastronomía oaxaqueña">
+
+<h3>Platillos típicos de la gastronomía oaxaqueña</h3>
+
+<p>
+La gastronomía oaxaqueña es una de las más variadas y representativas de México. Se caracteriza por el uso de ingredientes tradicionales como el maíz, el chile y el chocolate.
+
+Entre sus platillos más conocidos está el mole oaxaqueño, especialmente el mole negro, que combina chiles, especias y chocolate. También destacan las tlayudas, 
+una tortilla grande con frijoles, queso, carne y salsa.
+
+Otros alimentos típicos son los tamales envueltos en hoja de plátano, los chapulines, el quesillo y el caldo de piedra, que refleja la tradición indígena.</p>
+
+<img src="comida.PNG" alt="comida">
+<p class="pie-foto">
+Platillos típicos oaxaqueños preparados con ingredientes tradicionales.
+</p>
+</section>
+
+
+<section id="La gastronomía de Oaxaca en festividades tradicionales">
+<h3>La gastronomía de Oaxaca en festividades tradicionales</h3>
+<p>
+En Oaxaca, la comida es muy importante en las celebraciones. Durante la Guelaguetza, se comparten platillos como mole, tamales, tejate y nieves tradicionales.
+
+En el Día de Muertos, las familias preparan alimentos como mole, pan de muerto y chocolate para colocarlos en las ofrendas.
+
+En fiestas como bodas o celebraciones patronales, se sirven grandes banquetes con mole, arroz, tamales y carne, mostrando la importancia
+ de la convivencia y la tradición comunitaria.</p>
+
+<img src="TLM.jpg" alt="TLM">
+<p class="pie-foto">
+La comida tradicional ocupa un lugar importante en las festividades de Oaxaca.
+</p>
+</section>
+
+<div class="contenido">
+
+<section id="Vestimenta">
+
+<h2>Vestimenta</h2>
+
+<p>
+La vestimenta oaxaqueña es el conjunto de trajes tradicionales que representan la identidad cultural de las distintas regiones del estado de Oaxaca.
+ No es una sola forma de vestir, sino una gran variedad de prendas que cambian según el pueblo, la región y las tradiciones de cada comunidad indígena.
+
+Esta vestimenta se caracteriza por ser artesanal, ya que muchas prendas se elaboran a mano en telar de cintura o con bordados hechos por artesanas locales.
+ Además, sus diseños suelen incluir colores vivos y símbolos que representan la naturaleza, la historia y las creencias de cada grupo cultural.
+
+Entre las prendas más importantes destacan los huipiles, los trajes de tehuana, los bordados tradicionales y los accesorios como collares, rebozos y peinetas.
+ Cada uno de estos elementos no solo tiene una función estética, sino también cultural, ya que expresa identidad, orgullo y pertenencia comunitaria.
+
+La vestimenta oaxaqueña también se utiliza en fiestas importantes como la Guelaguetza, bodas, danzas tradicionales y celebraciones religiosas, donde se 
+muestra como una forma de preservar las tradiciones ancestrales.
+
+En resumen, la vestimenta oaxaqueña es una expresión viva de la cultura, la historia y la diversidad de los pueblos de Oaxaca.
+
+<img src="VESTIMENTA.jpg" alt="VESTIMENTA">
+<p class="pie-foto">
+La vestimenta oaxaqueña representa identidad y diversidad cultural.
+</p>
+</section>
+<section id="Huipiles tradicionales de Oaxaca">
+<h3>Huipiles tradicionales de Oaxaca</h3>
+
+<p>
+Los huipiles son una de las prendas más representativas de Oaxaca. Son blusas o túnicas largas elaboradas en telar de cintura y decoradas con bordados hechos a mano.
+
+Cada comunidad tiene diseños propios, colores y símbolos que representan su identidad cultural, su naturaleza y sus creencias. En regiones como el Istmo de Tehuantepec,
+ los huipiles pueden ser más elaborados y coloridos.</p>
+
+<img src="HUIPIL.jpg" alt="HUIPIL">
+<p class="pie-foto">
+Los huipiles destacan por sus bordados artesanales y colores tradicionales.
+</p>
+</section>
+
+</section>
+<section id="Bordados tradicionales oaxaqueños">
+<h3>Bordados tradicionales oaxaqueños</h3>
+
+<p>
+Los bordados oaxaqueños son hechos principalmente a mano por artesanas indígenas. Se caracterizan por su gran colorido y por representar elementos de la naturaleza como flores,
+ animales y figuras simbólicas.
+
+Estos bordados no solo son decorativos, sino que también transmiten historias, tradiciones y la identidad de cada pueblo.</p>
+
+<img src="BORDADOS.JPEG" alt="BORDADOS">
+<p class="pie-foto">
+Los bordados oaxaqueños expresan arte, cultura y tradiciones indígenas.
+</p>
+</section>
+
+
+</section>
+<section id="Trajes típicos oaxaqueños">
+<h3>Trajes típicos oaxaqueños</h3>
+
+<p>
+Los trajes típicos varían según la región de Oaxaca, pero uno de los más conocidos es el traje de tehuana, usado en el Istmo de Tehuantepec, especialmente en Juchitán de Zaragoza.
+
+Este traje se compone de huipil bordado, enaguas amplias y adornos como collares y peinetas. Para los hombres, suele incluir pantalón y camisa de manta o algodón con bordados sencillos.
+</p>
+
+<img src="tehuana.JPG" alt="tehuana">
+<p class="pie-foto">
+El traje de tehuana es uno de los símbolos más representativos de Oaxaca.
+</p>
+</section>
+
+
+<div class="contenido">
+
+<section id="Tradiciones">
+
+<h2>Tradiciones</h2>
+
+<p>
+Las tradiciones oaxaqueñas son el conjunto de costumbres, celebraciones, prácticas culturales y formas de vida que se han transmitido de generación en generación en el estado de Oaxaca.
+
+Estas tradiciones reflejan la identidad de sus pueblos indígenas y su historia, combinando raíces prehispánicas con influencias coloniales. Se expresan en fiestas, danzas, gastronomía, vestimenta, música y rituales comunitarios.
+
+En conjunto, las tradiciones oaxaqueñas fortalecen el sentido de pertenencia, la unión entre comunidades y la preservación de su cultura.
+
+<img src="tradiciones.jpeg" alt="tradiciones">
+<p class="pie-foto">
+Las tradiciones fortalecen la identidad cultural de los pueblos oaxaqueños.
+</p>
+</section>
+<section id="Guelaguetza">
+<h3>Guelaguetza</h3>
+
+<p>
+La Guelaguetza es la celebración cultural más importante del estado de Oaxaca. Se lleva a cabo en el mes de julio y también se conoce como “Lunes del Cerro”. 
+En este evento participan las ocho regiones del estado, cada una mostrando sus danzas, música, vestimenta tradicional y costumbres.
+
+El significado de “Guelaguetza” es “ofrenda” o “compartir”, lo que representa el valor de la ayuda mutua entre comunidades oaxaqueñas. Durante la celebración,
+ los participantes no solo presentan bailes, sino que también obsequian productos típicos como frutas, artesanías y comida al público.
+
+Es una tradición que refuerza la identidad cultural, el orgullo regional y la unión entre los pueblos de Oaxaca.</p>
+
+<img src="guelaguetza.jpg" alt="guelaguetza">
+<p class="pie-foto">
+La Guelaguetza celebra la unión, la música y las costumbres de Oaxaca.
+</p>
+</section>
+
+
+<section id="Día de Muertos">
+<h3>Día de Muertos</h3>
+
+<p>
+El Día de Muertos es una de las tradiciones más representativas de México, y en Oaxaca tiene un significado muy especial. Se celebra el 1 y 2 de noviembre, donde
+ las familias recuerdan y honran a sus seres queridos fallecidos.
+
+En Oaxaca, los hogares y panteones se llenan de altares u ofrendas decoradas con flores de cempasúchil, veladoras, fotografías, comida, pan de muerto, chocolate y mezcal.
+ Se cree que durante estos días las almas regresan para convivir con sus familias.
+
+Además de los altares, se realizan comparsas, desfiles y visitas a los cementerios durante la noche, creando un ambiente de respeto, memoria y celebración de la vida.
+</p>
+
+<img src="muertos.jpg" alt="muertos">
+<p class="pie-foto">
+El Día de Muertos honra la memoria de los seres queridos con ofrendas y flores.
+</p>
+</section>
+
+
+</section>
+<section id="Fiestas patronales">
+<h3>Fiestas patronales</h3>
+
+<p>
+Las fiestas patronales son celebraciones religiosas y comunitarias que se realizan en honor al santo patrón de cada pueblo en Oaxaca. Estas fiestas pueden durar varios
+ días e incluyen actividades religiosas como misas y procesiones.
+
+También forman parte importante las actividades culturales y sociales, como calendas (desfiles con música y faroles), bailes tradicionales, juegos pirotécnicos y ferias
+ con comida típica. La comunidad participa activamente en la organización, lo que fortalece la unión entre sus habitantes.
+
+Estas fiestas no solo tienen un carácter religioso, sino también social y cultural, ya que permiten mantener vivas las costumbres y tradiciones de cada comunidad.
+</p>
+
+<img src="patronales.jpg" alt="patronales">
+<p class="pie-foto">
+Las fiestas patronales combinan religión, cultura y convivencia comunitaria.
+</p>
+</section>
+
+
+
+<div class="contenido">
+
+<section id="Costumbres">
+
+<h2>Costumbres</h2>
+
+<p>
+Las costumbres son prácticas, hábitos y formas de comportamiento que una comunidad realiza de manera constante y que se transmiten de generación en generación. En el estado de Oaxaca, estas costumbres forman parte de la vida diaria de las personas y reflejan su identidad cultural, especialmente en la comida, la vestimenta, las fiestas y la organización comunitaria.
+</p>
+
+<img src="costumbres.jpg" alt="costumbres">
+<p class="pie-foto">
+Las costumbres oaxaqueñas reflejan valores y tradiciones transmitidas por generaciones.
+</p>
+</section>
+
+<section id="Uso de vestimenta tradicional en la Guelaguetza">
+
+<h3>Uso de vestimenta tradicional en la Guelaguetza</h3>
+
+<p>
+El uso de vestimenta tradicional durante la Guelaguetza constituye una costumbre representativa del estado de Oaxaca. En esta celebración, los participantes portan trajes típicos como huipiles y trajes de tehuana, elaborados de manera artesanal.
+
+Esta práctica refleja el orgullo por la identidad cultural de cada región y la preservación de las tradiciones ancestrales, siendo una expresión visible de la diversidad cultural oaxaqueña.
+</p>
+
+<img src="xx2.jpg" alt="xx2">
+<p class="pie-foto">
+La vestimenta tradicional muestra el orgullo y la identidad cultural de cada región.
+</p>
+</section>
+
+
+<section id="El tequio como forma de organización comunitaria">
+
+<h3>El tequio como forma de organización comunitaria</h3>
+
+<p>
+El tequio es una costumbre fundamental en las comunidades de Oaxaca. Consiste en el trabajo colectivo y voluntario que realizan los habitantes para el beneficio común, sin recibir remuneración económica.
+
+Esta práctica incluye actividades como la limpieza de espacios públicos, la construcción de obras comunitarias o el mantenimiento de caminos, y representa un valor de solidaridad, cooperación y responsabilidad social.
+</p>
+
+<img src="tequio.jpg" alt="tequio">
+<p class="pie-foto">
+El tequio representa el trabajo comunitario y la solidaridad entre habitantes.
+</p>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="introduccion">
+
+<h3>Introducción a la gastronomía</h3>
+
+<p>
+La gastronomía oaxaqueña es una de las más representativas de México por su gran diversidad, riqueza cultural y raíces indígenas. Se caracteriza por el uso de ingredientes 
+ancestrales como el maíz, el chile, el cacao y diversas hierbas aromáticas, además de técnicas tradicionales que han pasado de generación en generación.
+
+Oaxaca es considerada la “tierra de los siete moles”, aunque en realidad existen muchas más variedades. Su cocina refleja la identidad de sus pueblos originarios y la fuerte
+ conexión entre la alimentación, la cultura y la tradición.</p>
+
+<img src="intro.jpeg" alt="intro">
+<p class="pie-foto">
+La gastronomía de Oaxaca es reconocida por su diversidad y raíces ancestrales.
+</p>
+</section>
+
+<section id="historia">
+
+<h3>Historia de la gastronomía</h3>
+
+<p>
+La gastronomía de Oaxaca tiene su origen en las culturas zapoteca y mixteca, quienes ya utilizaban ingredientes como el maíz, el frijol, el chile y el cacao desde la
+ época prehispánica. Estos alimentos eran la base de su alimentación diaria y también tenían un significado ceremonial.
+
+Con la llegada de los españoles, se incorporaron nuevos ingredientes como la carne de cerdo, el arroz y diversas especias, lo que enriqueció aún más la cocina oaxaqueña.
+ A pesar de estos cambios, muchas técnicas y recetas tradicionales se han conservado hasta la actualidad.
+</p>
+
+<img src="emis.jpg" alt="emis">
+</section>
+
+<section id="Gastronomía de diferentes regiones de oaxaca">
+
+<h3>Gastronomía de diferentes regiones de oaxaca</h3>
+
+<p>
+La gastronomía oaxaqueña varía mucho según sus regiones, ya que cada una tiene ingredientes, climas y tradiciones distintas:
+
+Valles Centrales: Es la región más representativa, conocida por los moles, las tlayudas, el quesillo y el tasajo.
+Sierra Norte: Su cocina es más tradicional y de montaña, con platillos como tamales de hoja de plátano y uso de hongos silvestres.
+Sierra Sur: Destacan los alimentos preparados con hierbas locales, maíz criollo y recetas heredadas de comunidades indígenas.
+Istmo de Tehuantepec: Se caracteriza por platillos más intensos y condimentados, como garnachas, tamales y pescados por su cercanía al mar.
+Costa oaxaqueña: Su gastronomía se basa en mariscos frescos como ceviches, pescados asados y sopas de mariscos.
+</p>
+
+<img src="regiones.jpg" alt="regiones">
+<p class="pie-foto">
+La cocina oaxaqueña conserva tradiciones heredadas desde la época prehispánica.
+</p>
+</section>
+
+<section id="ingredientes">
+
+<h3>Ingredientes básicos en la cocina</h3>
+
+<p>
+Los ingredientes esenciales de la cocina oaxaqueña son el maíz, chile, frijol, cacao, hoja santa, quesillo, chapulines, calabaza y diversas hierbas aromáticas.
+
+Estos ingredientes no solo aportan sabor, sino que también representan la conexión de las comunidades con la tierra y sus tradiciones agrícolas.
+</p>
+
+<img src="chapulines.jpg" alt="chapulines">
+<p class="pie-foto">
+Los ingredientes tradicionales son parte esencial de la cocina oaxaqueña.
+</p>
+</section>
+
+<section id="platillos">
+
+<h3>Platillos tradicionales</h3>
+
+<p>
+Entre los platillos más importantes destacan los siete moles oaxaqueños, tlayudas, tamales, tasajo, enchiladas oaxaqueñas, caldo de piedra y tejate.
+
+Cada platillo tiene un origen cultural profundo y se prepara en fiestas, reuniones familiares o celebraciones importantes.
+</p>
+
+<img src="enchiladas.jpg" alt="enchiladas">
+<p class="pie-foto">
+Los platillos típicos representan la riqueza culinaria y cultural de Oaxaca.
+</p>
+</section>
+
+<section id="tecnicas">
+
+<h3>Técnicas de cocina</h3>
+
+<p>
+Las técnicas tradicionales incluyen el uso del metate para moler ingredientes, la cocción en comal de barro, el asado en brasas, la nixtamalización del maíz y la cocción en hornos de tierra.
+
+Estas técnicas permiten conservar sabores auténticos y representan el conocimiento ancestral de las comunidades oaxaqueñas.
+</p>
+
+<img src="torillas.jpg" alt="torillas">
+<p class="pie-foto">
+Las técnicas tradicionales permiten conservar los sabores auténticos de la cocina.
+</p>
+</section>
+
+</div>
+
+
+
+<!-- ===================== INDICE ===================== -->
+
+<div class="indice">
+
+<details open>
+
+<summary>Índice</summary>
+
+<a href="#introduccion">
+Introducción a la gastronomía
+</a>
+
+<a href="#historia">
+Historia de la gastronomía
+</a>
+
+<a href="#paises">
+Gastronomía de diferentes países
+</a>
+
+<a href="#ingredientes">
+Ingredientes básicos en la cocina
+</a>
+
+<a href="#platillos">
+Platillos tradicionales
+</a>
+
+<a href="#tecnicas">
+Técnicas de cocina
+</a>
+
+</details>
+
+</div>
+
+<!-- ===================== PANEL DERECHO ===================== -->
+
+<div class="autores">
+
+<h3>Páginas Sugeridas</h3>
+
+<a href="https://concepto.de/gastronomia/"
+target="_blank"
+class="link-sugerido">
+
+Concepto-Gastronomia
+
+</a>
+
+<a href="https://laroussecocina.mx/"
+target="_blank"
+class="link-sugerido">
+
+Larousse Cocina
+
+</a>
+
+<a href="https://institutomexicanodegastronomia.com.mx/que-es-la-gastronomia/"
+target="_blank"
+class="link-sugerido">
+
+Gastronomia
+
+</a>
+
+<hr>
+
+<h3>Compartir</h3>
+
+<div class="redes">
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://tupagina.com"
+target="_blank">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+alt="Facebook">
+
+</a>
+
+<a href="https://twitter.com/intent/tweet?url=https://tupagina.com"
+target="_blank">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+alt="Twitter">
+
+</a>
+
+<a href="https://wa.me/?text=Visita%20esta%20página%20https://tupagina.com"
+target="_blank">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+alt="WhatsApp">
+
+</a>
+
+<a href="https://mail.google.com/mail/?view=cm&fs=1&su=Página%20de%20gastronomía&body=Visita%20esta%20página%20https://tupagina.com"
+target="_blank">
+
+<img src="https://cdn-icons-png.flaticon.com/512/281/281769.png"
+alt="Gmail">
+
+</a>
+
+<button onclick="copiarPagina()" class="copiar-btn">
+
+<img src="https://cdn-icons-png.flaticon.com/512/60/60990.png"
+alt="Copiar">
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ===================== MARQUESINA ===================== -->
+
+<div class="marquesina-final">
+
+<marquee>
+¡Sabores, vestimenta, tradiciones y costumbres que reflejan nuestra identidad!
+</marquee>
+
+</div>
+
+<!-- ===================== PIE DE PAGINA ===================== -->
+
+<div class="recuadro-inferior">
+
+<p>
+© 2026 Sabor y Tradición | Todos los derechos reservados.
+</p>
+
+</div>
+
+<script>
+
+function suscribirse(){
+
+let correo = prompt("Escribe tu correo:");
+
+if(correo){
+alert("Gracias por suscribirte " + correo);
+}
+
+}
+
+function copiarPagina(){
+
+navigator.clipboard.writeText(window.location.href);
+
+alert("¡Enlace copiado!");
+
+}
+
+function toggleMenu(btn,id){
+
+document.querySelectorAll(".submenu").forEach(s=>{
+s.style.display="none";
+});
+
+document.querySelectorAll(".boton").forEach(b=>{
+b.classList.remove("activo");
+});
+
+document.getElementById(id).style.display="block";
+
+btn.classList.add("activo");
+
+}
+
+function buscarContenido(){
+
+let input = document.getElementById("busqueda").value.toLowerCase();
+
+let secciones = document.querySelectorAll("section");
+
+secciones.forEach(sec=>{
+
+if(sec.innerText.toLowerCase().includes(input)){
+sec.style.display="block";
+}else{
+sec.style.display="none";
+}
+
+});
+
+if(input === ""){
+secciones.forEach(sec=>{
+sec.style.display="block";
+});
+}
+
+}
+
+</script>
+
+</body>
+</html>
